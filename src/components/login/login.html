@@ -1,0 +1,37 @@
+<ion-content padding class="transparent-header">
+    <div padding>
+        <ion-row>
+        <ion-col>
+            <img class="logo" src="assets/imgs/logo-talentplay.png" />
+        </ion-col>
+        </ion-row>
+        <form [formGroup]="loginFormGroup" (ngSubmit)="onSubmitLogin()">
+        <ion-row>
+        <ion-col>
+            <ion-list inset class="no-border">
+            <ion-item>
+                <ion-label>Username</ion-label>
+                <ion-input type="text" formControlName="user"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>Password</ion-label>
+                <ion-input type="password" formControlName="password"></ion-input>
+            </ion-item>
+            </ion-list>
+        </ion-col>
+        </ion-row>
+        <ion-row>
+        <ion-col>
+            <button type="submit" ion-button class="login-button" [disabled]="!loginFormGroup.valid">Login</button>
+        </ion-col>
+        </ion-row>
+        </form>
+        <ion-row>
+        <ion-col>
+            <div (click)="onClickRegister()">
+                <span>Or create a new account.</span>
+            </div>
+        </ion-col>
+        </ion-row>
+    </div>
+    </ion-content>

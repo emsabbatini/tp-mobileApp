@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Mis Equipos</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div id="profile-bg"></div>
+    <div id="content">
+        <div id="profile-info">
+        <img id="profile-image" src="assets/imgs/default-avatar.png">
+        <h3 id="profile-name"></h3>
+        <span id="profile-description"></span>
+        </div>
+        <ion-list>
+            <ion-item *ngFor="let t of teams">
+                <ion-thumbnail item-start>
+                    <img src="assets/imgs/icon-no-image.png">
+                </ion-thumbnail>
+                <h2>{{t.name}}</h2>
+                <p></p>
+                <button ion-button clear item-end></button>
+            </ion-item>
+        </ion-list>  
+    </div>    
+    <ion-fab right bottom>
+        <button ion-fab color="secondary"><ion-icon name="add"></ion-icon></button>
+    </ion-fab>    
+</ion-content>

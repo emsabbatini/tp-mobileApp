@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title></ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-row style="text-align: center">
+        <ion-col>
+            <img src="assets/imgs/logo-talentplay-2.png"/>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+          <ion-searchbar placeholder="Buscar Jugadores" (ionInput)="getPlayers($event)"></ion-searchbar>
+          <ion-list>
+              <ion-item *ngFor="let p of players">
+                <ion-thumbnail item-start>
+                  <img src="assets/imgs/default-avatar.png">
+                </ion-thumbnail>
+                <h2>{{p.firstname}}</h2>
+                <p>{{utilsSvc.getPositionName(p.positions_id)}}</p>
+                <button ion-button clear item-end><ion-icon name="mail"></ion-icon></button>
+              </ion-item>
+          </ion-list>
+        </ion-col>
+    </ion-row>
+  </ion-content>

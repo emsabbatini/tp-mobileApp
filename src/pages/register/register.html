@@ -1,0 +1,49 @@
+<ion-content padding>
+    <ion-row style="text-align: center">
+        <ion-col>
+            <img src="assets/imgs/logo-talentplay-2.png"/>
+        </ion-col>
+    </ion-row>
+    <form [formGroup]="registerFormGroup" (ngSubmit)="onSubmitRegister()">
+    <ion-row>
+        <ion-col>
+          <ion-list>
+            <ion-item>
+                <ion-label stacked>Nombre</ion-label>
+                <ion-input type="text" formControlName="fname"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label stacked>Apellido</ion-label>
+                <ion-input type="text" formControlName="lname"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Email</ion-label>
+                <ion-input type="email" formControlName="email"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Usuario</ion-label>
+                <ion-input type="text" formControlName="user"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Password</ion-label>
+                <ion-input type="password" formControlName="password"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Confirmar Password</ion-label>
+                <ion-input type="password" formControlName="confirmPassword"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col>
+            <button type="submit" ion-button class="register-button" [disabled]="!registerFormGroup.valid">Registrar</button>
+        </ion-col>
+    </ion-row>
+    </form>
+  </ion-content>

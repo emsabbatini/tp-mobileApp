@@ -1,0 +1,73 @@
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Mi Perfil</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div id="profile-bg"></div>
+    <div id="content">
+        <div id="profile-info">
+        <img id="profile-image" src="assets/imgs/default-avatar.png">
+        <h3 id="profile-name">{{profile.firstname}} {{profile.lastname}}            
+            <ion-icon *ngIf="isEditable" (click)="onClickAction();" name="{{isEditing ? 'close-circle' : 'create'}}"></ion-icon>            
+        </h3>
+        <span id="profile-description"></span>
+        </div>
+        <ion-list>
+            <ion-item>
+                <ion-label stacked>Nombre</ion-label>
+                <ion-input type="text" [(ngModel)]="profile.firstname" disabled></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label stacked>Apellido</ion-label>
+                <ion-input type="text" [(ngModel)]="profile.lastname" disabled></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Nacionalidad</ion-label>
+                <ion-input type="text" [(ngModel)]="profile.nationality" [disabled]="!isEditing"></ion-input>
+            </ion-item>
+
+            <ion-item>
+                <ion-label stacked>Edad {{profile.age}}</ion-label>
+                <ion-range min="0" max="99" pin="true" [(ngModel)]="profile.age" color="secondary" [disabled]="!isEditing">
+                    <ion-label range-left>0</ion-label>
+                    <ion-label range-right>99</ion-label>
+                </ion-range>
+            </ion-item>         
+                                        
+            <ion-item>
+                <ion-label>Genero</ion-label>
+                <ion-select [(ngModel)]="profile.gender" [disabled]="!isEditing">
+                    <ion-option value="M">Masculino</ion-option>
+                    <ion-option value="F">Femenino</ion-option>
+                </ion-select>
+            </ion-item>              
+            
+            <ion-item>
+                <ion-label>Posicion</ion-label>
+                <ion-select [(ngModel)]="profile.positions_id" [disabled]="!isEditing">
+                    <ion-option value="1">Arquero</ion-option>
+                    <ion-option value="2">Defensor</ion-option>
+                    <ion-option value="3">Volante</ion-option>
+                    <ion-option value="4">Delantero</ion-option>
+                </ion-select>
+            </ion-item>       
+            
+            <ion-item>
+                <ion-label>Pierna Habil</ion-label>
+                <ion-select [(ngModel)]="profile.laterality" [disabled]="!isEditing">
+                    <ion-option value="I">Izquierdo</ion-option>
+                    <ion-option value="D">Derecho</ion-option>
+                </ion-select>
+            </ion-item>                                           
+            <ion-item *ngIf="isEditing">
+                <button type="button" ion-button class="action-button" (click)="onClickSave();">Guardar Cambios</button>
+            </ion-item>
+        </ion-list>  
+    </div>    
+</ion-content>
